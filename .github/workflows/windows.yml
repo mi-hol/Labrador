@@ -18,6 +18,11 @@ jobs:
             PLATFORM: 'x86'
             PLATFORM_ALT_NAME: 'x86'
             OUTPUT_BIN_DIR: 'bin32'
+
+    permissions:
+      id-token: write
+      attestations: write
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
