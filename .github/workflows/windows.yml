@@ -96,7 +96,7 @@ jobs:
           git clone --depth 1 https://github.com/espotek-org/Labrador-win-builder
           cd Labrador-win-builder
           git config --global credential.helper store
-          Add-Content "$env:USERPROFILE\.git-credentials" "https://$env:ACCESS_TOKEN:x-oauth-basic@github.com`n"
+          Add-Content "$env:USERPROFILE\.git-credentials" "https://$($env:github_token):x-oauth-basic@github.com`n"
           git config --global user.email "admin@espotek.com"
           git config --global user.name "Chris Esposito"
           git checkout master
