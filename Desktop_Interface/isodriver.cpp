@@ -19,8 +19,8 @@
 #define PI_8 8*PI
 static constexpr int kSpectrumCounterMax = 4;
 
-#define HORICURSORENABLED ((!spectrum & !freqResp & horiCursorEnabled0) | (spectrum & horiCursorEnabled1) | (freqResp & horiCursorEnabled2))
-#define VERTCURSORENABLED ((!spectrum & !freqResp & vertCursorEnabled0) | (spectrum & vertCursorEnabled1) | (freqResp & vertCursorEnabled2))
+#define HORICURSORENABLED ((!spectrum & !freqResp & !eyeDiagram & horiCursorEnabled0) | (spectrum & horiCursorEnabled1) | (freqResp & horiCursorEnabled2) | (eyeDiagram & horiCursorEnabled3))
+#define VERTCURSORENABLED ((!spectrum & !freqResp & !eyeDiagram & vertCursorEnabled0) | (spectrum & vertCursorEnabled1) | (freqResp & vertCursorEnabled2) | (eyeDiagram & vertCursorEnabled3))
 #else
 #define HORICURSORENABLED (horiCursorEnabled0)
 #define VERTCURSORENABLED (vertCursorEnabled0)
@@ -563,6 +563,8 @@ void isoDriver::cursorEnableHori(bool enabled){
         horiCursorEnabled1 = enabled;
     else if(freqResp)
         horiCursorEnabled2 = enabled;
+    else if(eyeDiagram)
+        horiCursorEnabled3 = enabled;
     else
 #endif
         horiCursorEnabled0 = enabled;
@@ -576,6 +578,8 @@ void isoDriver::cursorEnableVert(bool enabled){
         vertCursorEnabled1 = enabled;
     else if(freqResp)
         vertCursorEnabled2 = enabled;
+    else if(eyeDiagram)
+        vertCursorEnabled3 = enabled;
     else
 #endif
         vertCursorEnabled0 = enabled;
