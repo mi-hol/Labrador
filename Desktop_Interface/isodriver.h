@@ -84,7 +84,7 @@ public:
     DisplayControl *display0 = new DisplayControl(-0.1, 0, 2.5, -0.5);
     DisplayControl *display1 = new DisplayControl(0, 375000, 90, -60);
     DisplayControl *display2 = new DisplayControl(0, 62500, 90, -90);
-    DisplayControl *display3 = new DisplayControl(-0.1, 0, 2.5, -0.5);
+    DisplayControl *display3 = new DisplayControl(-0.001, 0.001, 12, -12);
     DisplayControl *display = display0;
     //Generic Functions
     void setDriver(genericUsbDriver *newDriver);

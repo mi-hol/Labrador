@@ -408,12 +408,14 @@ void MainWindow::initialisePlot()
     auto xyCurve = new QCPCurve(ui->scopeAxes->xAxis, ui->scopeAxes->yAxis);
     xyCurve->setPen(QPen(Qt::yellow, 1));
     ui->scopeAxes->addPlottable(xyCurve);
-    ui->scopeAxes->addGraph();
-    ui->scopeAxes->addGraph();
-    ui->scopeAxes->addGraph();
-    ui->scopeAxes->addGraph();
-    ui->scopeAxes->addGraph();
-    ui->scopeAxes->addGraph();
+    ui->scopeAxes->addGraph(); // Oscilloscope CH1 / Logic Analyzer CH1
+    ui->scopeAxes->addGraph(); // Oscilloscope CH2 / Logic Analyzer CH1 / Logic Analyzer CH2
+    ui->scopeAxes->addGraph(); // Vertical cursor begin
+    ui->scopeAxes->addGraph(); // Vertical cursor end
+    ui->scopeAxes->addGraph(); // Horizontal cursor begin
+    ui->scopeAxes->addGraph(); // Horizontal cursor end
+    for(int i=0; i<=94; ++i)
+        ui->scopeAxes->addGraph(); // eye diagram
 
 #if QCP_VER == 1
     QFont labelFont("Monospace", 12);
@@ -474,6 +476,8 @@ void MainWindow::initialisePlot()
     ui->scopeAxes->graph(3)->setPen(cursorDashPen);
     ui->scopeAxes->graph(4)->setPen(cursorSolidPen);
     ui->scopeAxes->graph(5)->setPen(cursorDashPen);
+    for(int i=0; i<=94; ++i)
+        ui->scopeAxes->graph(6+i)->setPen(QPen(Qt::yellow, 1));
 
     ui->scopeAxes->xAxis->setBasePen(axisPen);
     ui->scopeAxes->yAxis->setBasePen(axisPen);
