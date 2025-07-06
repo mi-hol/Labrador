@@ -828,9 +828,11 @@ void isoDriver::frameActionGeneric(char CH1_mode, char CH2_mode)
     }
 
     QVector<double> CH1, CH2;
+#ifndef DISABLE_SPECTRUM
     double CH1_avg = 0;
     double samplesPerSymbol = 0;
     int numSymbols = 0;
+#endif
 
     if (CH1_mode == -1 || CH1_mode == 1) {
         CH1 = analogConvert(readData_CH1, 128, AC_CH1, 1);
