@@ -43,7 +43,7 @@ Dave Messink has designed [a case that can be laser cut from 3mm plywood](https:
 ![Bottom view](https://github.com/espotek-org/Labrador/assets/22040436/7ac3882c-1c8f-4fad-9f9a-03112eef8ff8)
 
 # Licence
-All Dekstop software files are licenced under [GNU GPL v3](https://www.gnu.org/licenses/gpl.html).
+All Desktop software files are licenced under [GNU GPL v3](https://www.gnu.org/licenses/gpl.html).
 
 All Microcontroller software files, with the exception of those provided by Atmel, are licenced under the [3-Clause BSD License](https://opensource.org/licenses/BSD-3-Clause).
 
