@@ -6,7 +6,7 @@ on:
 
 jobs:
   build-windows:
-    runs-on: windows-2019
+    runs-on: windows-2022
     strategy:
       fail-fast: false
       matrix:
@@ -39,6 +39,7 @@ jobs:
         uses: ilammy/msvc-dev-cmd@v1
         with:
           arch: ${{ matrix.platform }}
+          toolset: 14.2
 
       - name: Build librador
         if: matrix.platform == 'x64'
@@ -79,7 +80,7 @@ jobs:
   build-installer:
     needs:
       - build-windows
-    runs-on: windows-2019
+    runs-on: windows-2022
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
