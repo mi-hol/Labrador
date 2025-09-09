@@ -413,11 +413,6 @@ void DisplayControl::setRespAndSpecRanges(QWheelEvent* event, QCustomPlot* axes,
             driver->retickXAxis();
         }
 
-        // judging by the scopeRangeSwitch code in mainwindow.cpp, it will take a bit more work to make this work on android
-//         m_spectrumMinX = lower_range;
-//         m_spectrumMaxX = upper_range;
-//         setMinSpectrum(lower_range);
-//         axes->xAxis->setRange(lower_range, upper_range);
         
     }
   }
