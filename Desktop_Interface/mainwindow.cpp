@@ -2715,7 +2715,6 @@ void MainWindow::on_actionFrequency_Spectrum_triggered(bool checked)
     if(checked){
         ui->cursorHoriCheck->setChecked(ui->controller_iso->horiCursorEnabled1);
         ui->cursorVertCheck->setChecked(ui->controller_iso->vertCursorEnabled1);
-//         ui->controller_iso->logSpacingEnableHorSpec(logHorCheckSpectrum->isChecked());
         ui->controller_iso->retickXAxis();
     }else{
         ui->cursorHoriCheck->setChecked(ui->controller_iso->horiCursorEnabled0);
@@ -2723,7 +2722,6 @@ void MainWindow::on_actionFrequency_Spectrum_triggered(bool checked)
         ui->controller_iso->fSpaceLabel->setVisible(false);
         ui->scopeAxes->xAxis->setScaleType(QCPAxis::stLinear);
 
-//         ui->controller_iso->logSpacingEnableHorSpec(false);
         ui->scopeAxes->xAxis->setNumberPrecision(6);
         ui->scopeAxes->xAxis->setAutoTickCount(9);
     }
@@ -2764,7 +2762,6 @@ void MainWindow::on_actionFrequency_Response_triggered(bool checked)
     if(checked){
         ui->cursorHoriCheck->setChecked(ui->controller_iso->horiCursorEnabled2);
         ui->cursorVertCheck->setChecked(ui->controller_iso->vertCursorEnabled2);
-//         ui->controller_iso->logSpacingEnableHorResp(logHorCheckResp->isChecked());
         ui->controller_iso->retickXAxis();
     }else{
         ui->cursorHoriCheck->setChecked(ui->controller_iso->horiCursorEnabled0);

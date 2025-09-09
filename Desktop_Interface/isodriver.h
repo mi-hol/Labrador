@@ -215,8 +215,6 @@ private:
     //Spectrum
     int m_spectrumCounter = 0;
     AsyncDFT *m_asyncDFT;
-//     double m_spectrumMinX = 0;
-//     double m_spectrumMaxX = 375000;
     bool m_specrumLogF = false;
     double m_spectrumMinY = -60;
     double m_spectrumMaxY = 90;

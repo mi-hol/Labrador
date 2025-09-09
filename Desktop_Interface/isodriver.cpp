@@ -63,7 +63,6 @@ isoDriver::isoDriver(QWidget *parent) : QLabel(parent)
     f0 = new siprint("Hz", 0);
     f1 = new siprint("Hz", 0);
     df = new siprint("Hz", 0);
-    
 
     startTimer();
 
@@ -354,7 +353,6 @@ void DisplayControl::setRespAndSpecRanges(QWheelEvent* event, QCustomPlot* axes,
     double steps = event->delta() / 120.0;
     double c;
     double pixPct;
-//     QDebug() << "steps" << steps;
     if (!(event->modifiers() == Qt::ControlModifier) && event->orientation() == Qt::Orientation::Vertical) {
         QCPRange range = axes->yAxis->range();
         double upper_range = range.upper;
@@ -364,8 +362,6 @@ void DisplayControl::setRespAndSpecRanges(QWheelEvent* event, QCustomPlot* axes,
         pixPct = (double)100 - ((double)100 * (((double)axes->yAxis->pixelToCoord(event->y())-range.lower) / range.size()));
         if (pixPct < 0) pixPct = 0;
         if (pixPct > 100) pixPct = 100;
-//         qDebug() << "WHEEL @ " << pixPct << "%";
-//         qDebug() << range.upper;
         upper_range -= steps * c * pixPct;
         lower_range += steps * c * (100.0 - pixPct);
 
@@ -398,7 +394,6 @@ void DisplayControl::setRespAndSpecRanges(QWheelEvent* event, QCustomPlot* axes,
         if(axes->xAxis->scaleType()==QCPAxis::stLogarithmic) {
             upper_range *= pow(upper_range/lower_range , (-steps * (100.0-pixPct)/200.));
             lower_range *= pow(upper_range/lower_range , (steps * pixPct)/200.);
-//             driver->retickXAxis();
             if (lower_range < (double)1) lower_range = (double)1;
         } else {
             c = (upper_range - lower_range) / (double)200;
@@ -1079,10 +1074,7 @@ void isoDriver::frameActionGeneric(char CH1_mode, char CH2_mode)
         axes->yAxis->setLabel("Relative Power (dBmV)");
         axes->xAxis->setRange(display->leftRange, display->rightRange);
         axes->yAxis->setRange(display->botRange, display->topRange);
-//         axes->yAxis->setRange(m_spectrumMinY, m_spectrumMaxY);
         /*Setting maximum/minimum y-axis -60dBmV to 90dBmV*/
-
-//         axes->xAxis->setTicker(QSharedPointer<QCPAxisTickerLog>(new QCPAxisTickerLog));
 
     } else if (freqResp) {
         if (!paused_CH1) {
@@ -1182,19 +1174,13 @@ void isoDriver::frameActionGeneric(char CH1_mode, char CH2_mode)
             // Plot gain response
             axes->graph(0)->setData(m_freqRespFreq, m_freqRespGain);
             axes->yAxis->setLabel("Gain (dB)");
-            axes->xAxis->setRange(display->leftRange, display->rightRange);
-            axes->yAxis->setRange(display->botRange, display->topRange);
-//             axes->xAxis->setRange(m_freqRespMin-10, m_freqRespMax+10);
-//             axes->yAxis->setRange(*std::min_element(m_freqRespGain.constBegin(), m_freqRespGain.constEnd())-10, *std::max_element(m_freqRespGain.constBegin(), m_freqRespGain.constEnd())+10);
         } else {
             // Plot phase response
             axes->graph(0)->setData(m_freqRespFreq, m_freqRespPhase);
             axes->yAxis->setLabel("Phase (degree)");
-            axes->xAxis->setRange(display->leftRange, display->rightRange);
-            axes->yAxis->setRange(display->botRange, display->topRange);
-//             axes->xAxis->setRange(m_freqRespMin-10, m_freqRespMax+10);
-//             axes->yAxis->setRange(*std::min_element(m_freqRespPhase.constBegin(), m_freqRespPhase.constEnd())-10, *std::max_element(m_freqRespPhase.constBegin(), m_freqRespPhase.constEnd())+10);
         }
+        axes->xAxis->setRange(display->leftRange, display->rightRange);
+        axes->yAxis->setRange(display->botRange, display->topRange);
         axes->graph(1)->clearData();
     } else if (eyeDiagram){
 
@@ -2214,7 +2200,7 @@ void isoDriver::retickXAxis()
             axes->xAxis->setNumberPrecision(0);
             axes->xAxis->setNumberFormat("f");
         } else {
-            // round the inverse of the log10 power to the closest power of two, then divide by 4.  e.g, upper_range/lower_range = 10^(1/3.5) yields 10^(1/4/3)=10^(1/16)
+            // round the inverse of the log10 power to the closest power of two, then divide by 4.  e.g, upper_range/lower_range = 10^(1/3.5) yields 10^(1/4/4)=10^(1/16)
             int log2_inv_log10 = round(log2(1./log10(upper_range/lower_range)));
             axes->xAxis->setScaleLogBase(pow(10.0,1./(pow(2,log2_inv_log10)*4.)));
             axes->xAxis->setSubTickCount(0);
