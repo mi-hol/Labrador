@@ -1069,7 +1069,6 @@ void isoDriver::frameActionGeneric(char CH1_mode, char CH2_mode)
         axes->yAxis->setLabel("Relative Power (dBmV)");
         axes->xAxis->setRange(display->leftRange, display->rightRange);
         axes->yAxis->setRange(display->botRange, display->topRange);
-        /*Setting maximum/minimum y-axis -60dBmV to 90dBmV*/
 
     } else if (freqResp) {
         if (!paused_CH1) {
