@@ -348,6 +348,7 @@ DisplayControl::DisplayControl(double left, double right, double top, double bot
     rightRange = right;
 }
 
+#ifndef DISABLE_SPECTRUM
 void DisplayControl::setRespAndSpecRanges(QWheelEvent* event, QCustomPlot* axes, isoDriver* driver)
 {
     double steps = event->delta() / 120.0;
@@ -416,6 +417,7 @@ void DisplayControl::setRespAndSpecRanges(QWheelEvent* event, QCustomPlot* axes,
         
     }
   }
+#endif
 
 
 
