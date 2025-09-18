@@ -348,10 +348,7 @@ DisplayControl::DisplayControl(double left, double right, double top, double bot
     rightRange = right;
 }
 
-<<<<<<< HEAD
-=======
 #ifndef DISABLE_SPECTRUM
->>>>>>> freq_resp_and_spec_zoom
 void DisplayControl::setRespAndSpecRanges(QWheelEvent* event, QCustomPlot* axes, isoDriver* driver)
 {
     double steps = event->delta() / 120.0;
@@ -420,10 +417,7 @@ void DisplayControl::setRespAndSpecRanges(QWheelEvent* event, QCustomPlot* axes,
         
     }
   }
-<<<<<<< HEAD
-=======
 #endif
->>>>>>> freq_resp_and_spec_zoom
 
 
 
