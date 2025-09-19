@@ -45,7 +45,9 @@ public:
     bool logSpaceX = false;
 
     void setVoltageRange (QWheelEvent* event, bool isProperlyPaused, double maxWindowSize, QCustomPlot* axes);
+#ifndef DISABLE_SPECTRUM
     void setRespAndSpecRanges (QWheelEvent* event, QCustomPlot* axes, isoDriver* driver);
+#endif
 
 signals:
     void topRangeUpdated(double);
