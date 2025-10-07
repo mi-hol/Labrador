@@ -51,7 +51,7 @@ All hardware files (schematics, PCB) are licenced under [Creative Commons 4.0 (C
 
 # Collaboration
 If you want to submit a Pull Request, bug report, or feature request, please feel free to do so here at GitHub.  
-If you just want to say hello and remind me that people are actually using my product (or if you just don't want to make a GitHub account), please email admin@espotek.com
+If you just want to say hello and remind me that people are actually using my product, please email admin@espotek.com
 
 Thanks to all.  
 ~Chris
