@@ -1,5 +1,7 @@
 name: Build macOS
-
+  contents: read
+  pull-requests: write
+  
 on:
   workflow_dispatch:
   workflow_call:
