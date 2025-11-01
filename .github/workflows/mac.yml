@@ -1,4 +1,6 @@
 name: Build macOS
+
+permissions:
   contents: read
   pull-requests: write
   
