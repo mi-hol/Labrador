@@ -37,7 +37,6 @@ jobs:
       - name: Run uploadtool
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          UPLOADTOOL_ISPRERELEASE: 'true'
           UPLOADTOOL_BODY: |-
             ## Android
 
