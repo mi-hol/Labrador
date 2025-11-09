@@ -1,3 +1,4 @@
+# see https://github.com/espotek-org/Labrador/wiki/Building-from-source#building-the-firmware
 EXECUTABLES :=
 LIB_DEP :=
 LIBS :=
