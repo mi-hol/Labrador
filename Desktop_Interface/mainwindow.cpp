@@ -198,7 +198,9 @@ MainWindow::MainWindow(QWidget *parent) :
         ui->controller_iso->driver->psu_offset = psu_voltage_calibration_offset;
 
         if((ui->controller_iso->driver->connected)&&dt_userWantsToCalibrate)
-            QTimer::singleShot(0, this, SLOT(on_actionCalibrate_triggered()));// a callback upon ui setup completion
+        // this singleShot timer only starts when the core application loop has started, which main.cpp shows is after the mainWindow has
+        // been constructed, so the line below essentially sets on_actionCalibrate... as a callback upon completion of the UI setup
+            QTimer::singleShot(0, this, SLOT(on_actionCalibrate_triggered()));
 
         ui->controller_iso->driver->calibrateOnConnect = dt_userWantsToCalibrate;
         connect(ui->controller_iso->driver, SIGNAL(calibrateMe()), this, SLOT(on_actionCalibrate_triggered()));
